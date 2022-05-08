@@ -28,7 +28,7 @@ public class EmailService {
 
     private static final String MAILGUN_URL = "https://api.mailgun.net/v3/";
 
-    private final Logger log = LoggerFactory.getLogger(EmailService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(EmailService.class);
 
     public EmailService() {
         this.mailgunDomain = null;
@@ -37,7 +37,7 @@ public class EmailService {
 
     public final EmailResponseDTO send(final EmailDTO dto) {
 
-        log.info("Sending email from {} to {} ", dto.from(), dto.to());
+        LOG.info("Sending email from {} to {} ", dto.from(), dto.to());
 
         final var template = new RestTemplate();
 
